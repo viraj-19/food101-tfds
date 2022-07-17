@@ -65,7 +65,7 @@ else:
 	result = class_names[np.argmax(pred)]
 	op = np.argmax(pred)
 
-	output = 'The image is a ' + op
+	output = 'The image is a ' + str(op)
 
 	slot.text('Done')
 
