@@ -63,8 +63,9 @@ else:
     'tuna_tartare','waffles']
 
 	result = class_names[np.argmax(pred)]
+	op = np.argmax(pred)
 
-	output = 'The image is a ' + result
+	output = 'The image is a ' + op
 
 	slot.text('Done')
 
