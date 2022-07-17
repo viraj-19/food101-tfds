@@ -62,11 +62,11 @@ else:
 
 	result = class_names[np.argmax(pred)]
 
-	output = 'The image is a ' + pred
+	output = 'The image is a ' + result
 
 	slot.text('Done')
 
-	st.success(output)
+	st.success(pred)
 
 
 #function to show the developer information
