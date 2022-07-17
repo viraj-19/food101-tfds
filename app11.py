@@ -60,9 +60,9 @@ else:
     'scallops','seaweed_salad','shrimp_and_grits','spaghetti_bolognese','spaghetti_carbonara','spring_rolls','steak','strawberry_shortcake','sushi','tacos','takoyaki','tiramisu',
     'tuna_tartare','waffles']
 
-	#result = class_names[np.argmax(pred)]
+	result = class_names[np.argmax(pred)]
 
-	output = 'The image is a ' + str(pred)#result
+	output = 'The image is a ' + pred
 
 	slot.text('Done')
 
