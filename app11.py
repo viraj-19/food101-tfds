@@ -48,7 +48,7 @@ else:
 
 	st.image(test_image, caption="Input Image", width = 400)
 
-	pred = predict_class(np.asarray(test_image), model)
+	pred = predict_class(test_image, model)
 
 	class_names = ['apple_pie','baby_back_ribs','baklava','beef_carpaccio','beef_tartare','beet_salad','beignets','bibimbap','bread_pudding','breakfast_burrito','bruschetta','caesar_salad',
 	'cannoli','caprese_salad','carrot_cake','ceviche','cheesecake','cheese_plate','chicken_curry','chicken_quesadilla','chicken_wings','chocolate_cake','chocolate_mousse','churros',
@@ -66,7 +66,7 @@ else:
 
 	slot.text('Done')
 
-	st.success(pred)
+	st.success(output)
 
 
 #function to show the developer information
