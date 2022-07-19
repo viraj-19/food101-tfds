@@ -16,9 +16,9 @@ def predict_class(image, model):
 
 	#image = tf.cast(image, tf.float32)
 	#image = tf.image.resize(image, [224,224])
-	image = tf.convert_to_tensor(image, dtype=tf.float32)
+	x = tf.convert_to_tensor(image, dtype=tf.float32)
 
-	image = np.expand_dims(image, axis = 0)
+	y = np.expand_dims(image, axis = 0)
 
 	prediction = model.predict(image)
 
@@ -65,7 +65,7 @@ else:
 	result = class_names[np.argmax(pred)]
 	op = np.argmax(pred)
 
-	output = 'The image is a ' + str(op) + 'and'+ str(pred) +str(test_image)
+	output = 'The image is a ' + str(op) + 'and'+ str(pred) +str(test_image) + str(x)+ str (y)
 
 	slot.text('Done')
 
