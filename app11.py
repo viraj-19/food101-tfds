@@ -68,7 +68,7 @@ else:
 	result = class_names[np.argmax(pred)]
 	op = np.argmax(pred)
 
-	output = 'The image is a ' + str(op) + 'and'+ str(pred) + 'image at 1 '+str(test_image1) +' \n'+ 'image at 2 '+ str(test_image2.shape)+' \n'+ 'image at 3 '+ str(test_image3.shape)+ '\n '+'image at 4 '+ str(test_image4.shape)
+	output = 'The image is a ' + str(op) + 'and'+ str(pred) + 'image at 1 '+str(test_image1) +' \n'+ 'image at 2 '+ str(test_image2)+' \n'+ 'image at 3 '+ str(test_image3.shape)+ '\n '+'image at 4 '+ str(test_image4.shape)
 
 	slot.text('Done')
 
