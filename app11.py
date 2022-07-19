@@ -14,11 +14,11 @@ def load_model():
 
 def predict_class(image, model):
 
-	#image = tf.cast(image, tf.float32)
-	#image = tf.image.resize(image, [224,224])
-	x = tf.convert_to_tensor(image, dtype=tf.float32)
+	##image = tf.cast(image, tf.float32)
+	##image = tf.image.resize(image, [224,224])
+	#image= tf.convert_to_tensor(image, dtype=tf.float32)
 
-	y = np.expand_dims(image, axis = 0)
+	#image= np.expand_dims(image, axis = 0)
 
 	prediction = model.predict(image)
 
@@ -46,11 +46,14 @@ else:
 	slot.text('Running inference....')
 
 	test_image = Image.open(file)
-	test_image = test_image.resize((224,224))
+	test_image1 = test_image.resize((224,224))
+	test_image2 = np.asarray(test_image1)
+	test_image3= tf.convert_to_tensor(test_image2, dtype=tf.float32)
+	test_image4= np.expand_dims(test_image3, axis = 0)
 
 	st.image(test_image, caption="Input Image", width = 400)
 
-	pred = predict_class(np.asarray(test_image), model)
+	pred = predict_class(test_image4, model)
 
 	class_names = ['apple_pie','baby_back_ribs','baklava','beef_carpaccio','beef_tartare','beet_salad','beignets','bibimbap','bread_pudding','breakfast_burrito','bruschetta','caesar_salad',
 	'cannoli','caprese_salad','carrot_cake','ceviche','cheesecake','cheese_plate','chicken_curry','chicken_quesadilla','chicken_wings','chocolate_cake','chocolate_mousse','churros',
@@ -65,7 +68,7 @@ else:
 	result = class_names[np.argmax(pred)]
 	op = np.argmax(pred)
 
-	output = 'The image is a ' + str(op) + 'and'+ str(pred) +str(test_image) + str(x)+ str (y)
+	output = 'The image is a ' + str(op) + 'and'+ str(pred) + str(test_image1) +  str(test_image2)+  str(test_image3)+  str(test_image4)
 
 	slot.text('Done')
 
