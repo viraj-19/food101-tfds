@@ -47,7 +47,7 @@ else:
 
 	test_image = Image.open(file)
 	test_image1 = test_image.resize((224,224))
-	test_image2 = np.asarray(test_image1)
+	test_image2 = np.array(test_image1)
 	test_image3= tf.convert_to_tensor(test_image2, dtype=tf.float32)
 	test_image4= np.expand_dims(test_image3, axis = 0)
 
