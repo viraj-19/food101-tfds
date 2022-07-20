@@ -12,7 +12,7 @@ def load_model():
 	return model
 
 
-def predict_class(image, model):
+#def predict_class(image, model):
 
 	##image = tf.cast(image, tf.float32)
 	##image = tf.image.resize(image, [224,224])
@@ -53,7 +53,7 @@ else:
 
 	st.image(test_image, caption="Input Image", width = 400)
 
-	pred = predict_class(test_image4, model)
+	prediction = model.predict(test_image4)
 
 	class_names = ['apple_pie','baby_back_ribs','baklava','beef_carpaccio','beef_tartare','beet_salad','beignets','bibimbap','bread_pudding','breakfast_burrito','bruschetta','caesar_salad',
 	'cannoli','caprese_salad','carrot_cake','ceviche','cheesecake','cheese_plate','chicken_curry','chicken_quesadilla','chicken_wings','chocolate_cake','chocolate_mousse','churros',
@@ -65,8 +65,8 @@ else:
     'scallops','seaweed_salad','shrimp_and_grits','spaghetti_bolognese','spaghetti_carbonara','spring_rolls','steak','strawberry_shortcake','sushi','tacos','takoyaki','tiramisu',
     'tuna_tartare','waffles']
 
-	result = class_names[np.argmax(pred)]
-	op = np.argmax(pred)
+	result = class_names[np.argmax(prediction)]
+	op = np.argmax(prediction)
 
 	output = 'The image is a ' + str(op) + 'and'+ str(pred) + 'image at 1 '+str(test_image1) +' \n'+ 'image at 2 '+ str(test_image2)+' \n'+ 'image at 3 '+ str(test_image3.shape)+ '\n '+'image at 4 '+ str(test_image4.shape)
 
